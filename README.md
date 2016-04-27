@@ -1,8 +1,8 @@
 # ci-toolbox
 
-This toolbox contains popular PHP utilites used to ensure stability for continuous integration.
+This toolbox contains popular PHP utilities used to ensure stability for continuous integration.
 
-Within this package you will find a rabbit.yaml file which is used to run all the included utilites. Rabbit is an easy to install Python application [https://github.com/ouijan/rabbit](https://github.com/ouijan/rabbit).
+Within this package you will find a rabbit.yaml file which is used to run all the included utilities. Rabbit is an easy to install Python application [https://github.com/ouijan/rabbit](https://github.com/ouijan/rabbit).
 
 ## Install
 
@@ -16,11 +16,11 @@ Require the package in your `composer.json` file and run the `composer install` 
 }
 ```
 
-Move the included rabbit.yaml file into the root directory of your application
+Move the included rabbit.yaml file into the root directory of your application.
 
 ## Usage
 
-This toolbox is just a collection of popular PHP utilites with a convient way to run them using Rabbit.
+This toolbox is just a collection of popular PHP utilities with a convient way to run them using Rabbit.
 
 ```
 $ cd /path/to/the/root/of/your/application
