@@ -1,0 +1,26 @@
+{
+    "name": "garretblankenship/code-smell-toolbox",
+    "description": "This toolbox combines other various popular PHP tools and runs them easily with Rabbit",
+    "homepage": "https://github.com/DigitalPacific/ci-toolbox.git",
+    "license": "Apache 2.0",
+        "authors": [
+        {
+            "name": "Garret Blankenship",
+            "email": "blankenship.151@gmail.com"
+        }
+    ],
+    "require":{
+        "php": ">=5.6",
+        "jakub-onderka/php-parallel-lint": "0.9.2",
+        "jakub-onderka/php-console-highlighter": "0.3.2",
+        "squizlabs/php_codesniffer": "2.6.0",
+        "sebastian/phpcpd": "2.0.4",
+        "phpmd/phpmd": "2.4.3",
+        "phpunit/phpunit": "5.3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "GarretBlankenship\\CIToolbox\\": "src"
+        }
+    }
+}
