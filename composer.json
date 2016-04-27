@@ -1,5 +1,5 @@
 {
-    "name": "garretblankenship/code-smell-toolbox",
+    "name": "digitalpacific/ci-toolbox",
     "description": "This toolbox combines other various popular PHP tools and runs them easily with Rabbit",
     "homepage": "https://github.com/DigitalPacific/ci-toolbox.git",
     "license": "Apache 2.0",
@@ -20,7 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "GarretBlankenship\\CIToolbox\\": "src"
+            "DigitalPacific\\CIToolbox\\": "src"
         }
     }
 }
