@@ -1,5 +1,5 @@
 commands:
-  - hop: test-suite
+  - hop: utility-suite
     to: rab separator && rab lint && rab separator && rab compliance run && rab separator && rab duplicates && rab separator && rab rules && rab separator
     description: Complete testing suite.
   - hop: lint
