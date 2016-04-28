@@ -1,0 +1,31 @@
+commands:
+  - hop: utility-suite
+    to: rab separator dashes && rab lint && rab separator dashes && rab compliance run && rab separator dashes && rab duplicates && rab separator dashes && rab rules && rab separator dashes
+    description: Complete testing suite.
+  - hop: lint
+    to: echo Running Lint && rab separator asteriks && vendor/bin/parallel-lint . --exclude vendor --exclude workbench
+    description: Uses parallel-lint to parse the current directory.
+  - hop: compliance test
+    to: echo Running Compliance Test && rab separator asteriks && vendor/bin/phpcs --standard=PSR2 --ignore=*blade.php --colors ./app && echo 0 compliance errors
+    description: Uses PHP_CodeSniffer to test for PSR2 compliance
+  - hop: compliance fix
+    to: echo Running Compliance Fix && rab separator asteriks && vendor/bin/phpcbf -w --standard=PSR2 --ignore=*blade.php ./app
+    description: Uses PHP_CodeSniffer to automatically fix PSR2 compliance
+  - hop: compliance run 
+    to: rab compliance test || rab compliance fix
+    description: Uses rabbit compliance test to see if there are any errors and if there are it runs rabbit compliance fix to automaically fix them
+  - hop: duplicates
+    to: echo Running Duplicates Check && rab separator asteriks && vendor/bin/phpcpd --names-exclude=*blade.php --exclude=config ./app
+    description: Uses PHPCPD to detect duplicate lines of code
+  - hop: separator dashes
+    to: echo -----------------------------------------------------------------------------------
+    description: Separator -- to go in-between different commands
+  - hop: separator asteriks
+    to: echo "***********************************************************************************"
+    description: Separator ** to go in-between different commands
+  - hop: rules
+    to: echo Running Rules Check && rab separator asteriks && vendor/bin/phpmd ./app text codesize,controversial,design,unusedcode,vendor/digitalpacific/ci-toolbox/src/Rulesets/naming-modified.xml,vendor/digitalpacific/ci-toolbox/src/Rulesets/cleancode-modified.xml && echo 0 rule violations
+    description: Uses PHP Mess Detector to run code against defined rules
+  - hop: unittest
+    to: echo Running Unit Test && rab separator asteriks && vendor/bin/phpunit
+    description: Uses PHPUnit to run unit tests on the directory

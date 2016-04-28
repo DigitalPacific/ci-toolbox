@@ -4,7 +4,7 @@ This toolbox contains popular PHP utilities used to ensure stability for continu
 
 Within this package you will find a rabbit.yaml file which is used to run all the included utilities. Rabbit is an easy to install Python application [https://github.com/ouijan/rabbit](https://github.com/ouijan/rabbit).
 
-## Install
+## Install - Package
 
 Require the package in your `composer.json` file and run the `composer install` command to install it:
 
@@ -16,31 +16,89 @@ Require the package in your `composer.json` file and run the `composer install` 
 }
 ```
 
-Move the included rabbit.yaml file into the root directory of your application.
+## Install - Rabbit
+
+Rabbit is a Python module that can be installed via pip, visit Rabbit's [repo](https://github.com/ouijan/rabbit) for installation instructions.
+
+Once Rabbit has been installed copy the appropriate yaml file from the rabbit folder into the root directory of your code. Rename the file rabbit.yaml.
+
+If everything is installed correctly run:
+
+```
+$ rabbit
+```
+
+Which should display:
+
+```
+Usage: rabbit [OPTIONS] COMMAND [ARGS]...
+
+Options:
+  --help  Show this message and exit.
+
+Commands:
+  compliance
+  duplicates     Uses PHPCPD to detect duplicate lines of code
+  lint           Uses parallel-lint to parse the current...
+  rules          Uses PHP Mess Detector to run code against...
+  separator      Separator to go in-between different commands
+  unittest       Uses PHPUnit to run unit tests on the...
+  utility-suite  Complete testing suite.
+```
+
+## Install - Patch
+
+This toolbox is just a collection of other utilities that have their own dependencies. One of those dependencies is a program called patch.
+
+A patch program is already installed on OSX
+
+Centos Installation:
+
+```
+$ yum install patch
+```
+
+Ubunutu Installation:
+
+```
+$ apt-get install patch
+```
 
 ## Usage
 
-This toolbox is just a collection of popular PHP utilities with a convient way to run them using Rabbit.
+This toolbox is just a collection of popular PHP utilities with a convenient way to run them using Rabbit.
+
+There are 5 utilities in this toolbox:
+
+- [php-parallel-lint](https://github.com/JakubOnderka/PHP-Parallel-Lint)
+- [php_codesniffer](https://github.com/squizlabs/PHP_CodeSniffer)
+- [phpcpd](https://github.com/sebastianbergmann/phpcpd)
+- [phpmd](https://github.com/phpmd/phpmd)
+- [phpunit](https://github.com/sebastianbergmann/phpunit)
+
+The way that Rabbit is setup is to run each of these utilities individually or as a suite.
+
+If you are importing this package into an existing project it is recommended that first run each utility individually, fixing up problems that are reported and tweaking the rabbit.yaml file to suite your projects needs before running the the entire suite of utilities.
+
+Here is an example of how to run an individual utility:
 
 ```
 $ cd /path/to/the/root/of/your/application
 ```
 
-Once the rabbit.yaml file is in the root directory of your application and you have successfully [installed](https://github.com/ouijan/rabbit) Rabbit.
+```
+$ rabbit lint
+```
 
-You can either run the entire utility suite:
+Once you finished running the utilities individually you can run the entire suite by using:
 
 ```
 $ rabbit utility-suite
 ```
 
-or individual pieces:
+This command runs each individual utility and exits with that utilities exit code. So if during the execution of this command the first utility has an exit code that is not 0 no other utilities will run after it. This is useful in a continuous integration environment where a script could call this single command to run the entire suite and be confident that if the suite exits with a code of 0 then everything has passed.
 
-```
-$ rabbit lint
-```
-
-To see all the different rabbit commands for the project type:
+If you need a reminder of the different Rabbit commands already setup, you can either view the rabbit.yaml file or run:
 
 ```
 $ rabbit
