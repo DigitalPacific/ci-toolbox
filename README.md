@@ -11,7 +11,7 @@ Require the package in your `composer.json` file and run the `composer install` 
 ```json
 {
     "require-dev": {
-        "DigitalPacific/ci-toolbox": "0.*"
+        "digital-pacific/ci-toolbox": "0.*"
     }
 }
 ```
