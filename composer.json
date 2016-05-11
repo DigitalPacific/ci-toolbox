@@ -1,5 +1,5 @@
 {
-    "name": "digitalpacific/ci-toolbox",
+    "name": "digital-pacific/ci-toolbox",
     "description": "This toolbox combines other various popular PHP tools and runs them easily with Rabbit",
     "homepage": "https://github.com/DigitalPacific/ci-toolbox.git",
     "license": "Apache 2.0",
