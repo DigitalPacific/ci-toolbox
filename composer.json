@@ -16,7 +16,7 @@
         "squizlabs/php_codesniffer": "2.6.0",
         "sebastian/phpcpd": "2.0.2",
         "phpmd/phpmd": "2.4.3",
-        "phpunit/phpunit": "4.8.* || 5.3.*"
+        "phpunit/phpunit": "4.8.*"
     },
     "autoload": {
         "psr-4": {
