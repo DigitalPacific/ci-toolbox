@@ -1,15 +1,15 @@
 commands:
   - hop: utility-suite
-    to: rab separator dashes && rab lint && rab separator dashes && rab compliance run && rab separator dashes && rab duplicates && rab separator dashes && rab rules && rab separator dashes
+    to: rab separator dashes && rab lint && rab separator dashes && rab compliance test && rab separator dashes && rab duplicates && rab separator dashes && rab rules && rab separator dashes
     description: Complete testing suite.
   - hop: lint
-    to: echo Running Lint && rab separator asteriks && vendor/bin/parallel-lint . --exclude vendor --exclude workbench
+    to: echo Running Lint && rab separator asteriks && vendor/bin/parallel-lint . --exclude vendor --exclude workbench --blame
     description: Uses parallel-lint to parse the current directory.
   - hop: compliance test
-    to: echo Running Compliance Test && rab separator asteriks && vendor/bin/phpcs --standard=PSR2 --ignore=*blade.php --colors ./app && echo 0 compliance errors
+    to: echo Running Compliance Test && rab separator asteriks && vendor/bin/phpcs --standard=PSR2 --ignore=*blade.php,*/[Dd]atabase/* --colors ./app && echo 0 compliance errors
     description: Uses PHP_CodeSniffer to test for PSR2 compliance
   - hop: compliance fix
-    to: echo Running Compliance Fix && rab separator asteriks && vendor/bin/phpcbf -w --standard=PSR2 --ignore=*blade.php ./app
+    to: echo Running Compliance Fix && rab separator asteriks && vendor/bin/phpcbf -w --standard=PSR2 --ignore=*blade.php,*/[Dd]atabase/* ./app
     description: Uses PHP_CodeSniffer to automatically fix PSR2 compliance
   - hop: compliance run 
     to: rab compliance test || rab compliance fix
