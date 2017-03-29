@@ -103,3 +103,23 @@ If you need a reminder of the different Rabbit commands already setup, you can e
 ```
 $ rabbit
 ```
+
+## Bitbucket Pipeline
+
+Bitbucket has a new feature called Pipelines that this toolbox can be utilised for in your PHP projects.
+
+A docker image has been created specifically for use with this toolbox and can be found at [php-ci-toolbox](https://hub.docker.com/r/gblankenship/php-ci-toolbox/).
+
+An example bitbucket-pipelines.yml file for running this ci-toolbox is below.
+
+```
+image: gblankenship/php-ci-toolbox:latest
+pipelines:
+  default:
+    - step:
+        script:
+          - composer -V
+          - composer install
+          - cp vendor/digital-pacific/ci-toolbox/rabbit/laravel.rabbit.yaml ./rabbit.yaml
+          - rabbit utility-suite
+```
