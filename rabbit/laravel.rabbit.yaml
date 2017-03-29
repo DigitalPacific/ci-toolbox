@@ -24,7 +24,7 @@ commands:
     to: echo "***********************************************************************************"
     description: Separator ** to go in-between different commands
   - hop: rules
-    to: echo Running Rules Check && rab separator asteriks && vendor/bin/phpmd ./app text codesize,controversial,design,unusedcode,vendor/digitalpacific/ci-toolbox/src/Rulesets/naming-modified.xml,vendor/digitalpacific/ci-toolbox/src/Rulesets/cleancode-modified.xml && echo 0 rule violations
+    to: echo Running Rules Check && rab separator asteriks && vendor/bin/phpmd ./app text codesize,controversial,design,unusedcode,vendor/digital-pacific/ci-toolbox/src/Rulesets/naming-modified.xml,vendor/digital-pacific/ci-toolbox/src/Rulesets/cleancode-modified.xml && echo 0 rule violations
     description: Uses PHP Mess Detector to run code against defined rules
   - hop: unittest
     to: echo Running Unit Test && rab separator asteriks && vendor/bin/phpunit
